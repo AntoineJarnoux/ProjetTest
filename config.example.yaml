@@ -1,0 +1,32 @@
+# Copie ce fichier en config.yaml et adapte-le.
+
+# Seuls les streamers listés ici avec `accord: true` sont traités.
+# Mets `accord: true` uniquement si tu as l'autorisation du streamer
+# (accord direct ou campagne de clipping officielle).
+streamers:
+  - login: exemple_streamer     # pseudo Twitch (dans l'URL twitch.tv/<login>)
+    accord: false
+    compte_tiktok: principal    # nom du compte TikTok connecté (commande `connecter`)
+    remuneration_par_1000_vues: 1.0   # € pour 1000 vues, selon ton accord
+    # Zone de la facecam dans l'image 1920x1080 (optionnel, pour le montage "facecam")
+    facecam: {x: 0, y: 0, largeur: 480, hauteur: 270}
+
+recherche:
+  jours: 7            # clips créés ces N derniers jours
+  max_par_streamer: 5
+  vues_minimum: 500
+
+montage:
+  disposition: flou   # "flou" (fond flouté) ou "facecam" (facecam en haut, jeu en bas)
+  duree_max: 60       # secondes
+  sous_titres: true   # nécessite faster-whisper
+  modele_whisper: small
+  langue: fr
+
+publication:
+  confidentialite: SELF_ONLY   # les apps TikTok non auditées ne peuvent publier qu'en privé
+  contenu_sponsorise: true     # à activer si tu es payé par le streamer (obligation TikTok)
+  credit: "🎥 Clip de @{streamer} sur Twitch"
+  hashtags: ["#twitch", "#clip", "#stream"]
+
+dossier_donnees: data
